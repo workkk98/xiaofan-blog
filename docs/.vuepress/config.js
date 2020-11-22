@@ -27,7 +27,8 @@ module.exports = {
         sidebarDepth: 1,    // 可选的, 默认值是 1,
         children: [
           ['/vue/renderwatcher', '渲染观察者'],
-          ['/vue/VNode_DOM', '从VNode到DOM']
+          ['/vue/VNode_DOM', '从VNode到DOM'],
+          ['/vue/createComponent', '创建子组件']
         ]
       },
     ],
