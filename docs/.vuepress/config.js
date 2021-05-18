@@ -31,6 +31,15 @@ module.exports = {
           ['/vue/createComponent', '创建子组件']
         ]
       },
+      {
+        title: '随笔',   // 必要的
+        path: '/others/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+        collapsable: false, // 可选的, 默认值是 true,
+        sidebarDepth: 1,    // 可选的, 默认值是 1,
+        children: [
+          ['/others/github-actions', 'github actions'],
+        ]
+      },
     ],
     lastUpdated: 'Last Updated'
   }
