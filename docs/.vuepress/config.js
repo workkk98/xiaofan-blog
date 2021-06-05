@@ -4,7 +4,7 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Github主页', link: 'https://github.com/workINgithub'}
+      { text: 'Github主页', link: 'https://github.com/workkk98'}
     ],
     sidebar: [
       {
