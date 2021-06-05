@@ -1,5 +1,5 @@
 module.exports = {
-  title: '小凡的博客',
+  title: '前端之旅',
   description: '博客',
   themeConfig: {
     nav: [
@@ -38,6 +38,8 @@ module.exports = {
         sidebarDepth: 1,    // 可选的, 默认值是 1,
         children: [
           ['/others/github-actions', 'github actions'],
+          ['/others/How-To-Read-ECMAScript-spec', '如何阅读ECMAScript规范'],
+          ['/others/nginx', 'nginx使用手册']
         ]
       },
     ],
