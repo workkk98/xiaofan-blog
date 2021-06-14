@@ -28,7 +28,8 @@ module.exports = {
         children: [
           ['/vue/renderwatcher', '渲染观察者'],
           ['/vue/VNode_DOM', '从VNode到DOM'],
-          ['/vue/createComponent', '创建子组件']
+          ['/vue/createComponent', '创建子组件'],
+          ['/vue/vue-hot-reload-api', 'vue-loader是如何支持热更新的']
         ]
       },
       {
