@@ -40,7 +40,8 @@ module.exports = {
         children: [
           ['/others/github-actions', 'github actions'],
           ['/others/How-To-Read-ECMAScript-spec', '如何阅读ECMAScript规范'],
-          ['/others/nginx', 'nginx使用手册']
+          ['/others/nginx', 'nginx使用手册'],
+          ['/others/abstract-comparison', '从ECMAScript规范来看相等操作符']
         ]
       },
     ],
