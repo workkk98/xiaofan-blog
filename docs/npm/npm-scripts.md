@@ -73,7 +73,7 @@ service.run(command, args, rawArgv).catch(err => {
 > #!/usr/bin/env node
 > 这个被称之为 "shebang"，它名称的具体的解释很多种。
 
-还有一个重点就是，当我们本地安装这些npm模块时，如果是package.json有bin字段，就会在本地/node_modules/.bin文件夹下创建对应的软链接。
+还有一个重点就是，**当我们本地安装这些npm模块时，如果是package.json有bin字段，就会在本地/node_modules/.bin文件夹下创建对应的软链接。**
 
 [npm原文](https://docs.npmjs.com/files/package.json#bin)
 
