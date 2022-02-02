@@ -17,6 +17,12 @@ const plugins = [
   //     },      
   //   }
   // ]
+  [
+    '@vuepress/plugin-google-analytics',
+    {
+      id: 'G-0WXGVLRBHZ'
+    }
+  ]
 ]
 
 const defaultThemConfig: DefaultThemeData = {
