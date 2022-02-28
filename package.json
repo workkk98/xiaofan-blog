@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vuepress dev docs --config ./docs/.vuepress/config.ts",
     "build": "vuepress build docs ./docs/.vuepress/config.ts",
+    "build:debug": "node --inspect-brk ./node_modules/.bin/vuepress build docs ./docs/.vuepress/config.ts",
     "log": "git log"
   },
   "keywords": [],

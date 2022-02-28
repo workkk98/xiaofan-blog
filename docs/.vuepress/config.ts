@@ -14,7 +14,7 @@ const plugins = [
   //   {
   //     components: {
   //       Home: path.resolve(__dirname, './components/Home.vue'),
-  //     },      
+  //     },
   //   }
   // ]
   [
@@ -67,6 +67,14 @@ const defaultThemConfig: DefaultThemeData = {
         ['/others/abstract-comparison', '从ECMAScript规范来看相等操作符']
       ].map(turple2SidebarItem)
     },
+    {
+      text: '函数式编程',
+      link: '/functional-programming/',
+      collapsable: false, // 可选的, 默认值是 true,
+      children: [
+        ['/functional-programming/chapter-1', '第一章'],
+      ].map(turple2SidebarItem)
+    }
   ],
   lastUpdated: true
 }
