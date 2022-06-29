@@ -13,20 +13,20 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 14
+    # - uses: actions/setup-node@v3
+    #   with:
+    #     node-version: 14
 
-    # - name: vuepress-deploy
-    #   uses: jenkey2011/vuepress-deploy@master
-    #   env:
-    #     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-    #     TARGET_BRANCH: master
-    #     BUILD_SCRIPT: yarn && yarn build
-    #     BUILD_DIR: docs/.vuepress/dist
-    #     CNAME: https://workk98.github.io/xiaofan-blog/
+    - name: vuepress-deploy
+      uses: jenkey2011/vuepress-deploy@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        TARGET_REPO: workkk98/blog
+        TARGET_BRANCH: master
+        BUILD_SCRIPT: yarn && yarn build
+        BUILD_DIR: docs/.vuepress/dist
 
-    - name: deploy
-      run: |
-        chmod +x ./deploy.sh
-        ./deploy.sh
+    # - name: deploy
+    #   run: |
+    #     chmod +x ./deploy.sh
+    #     ./deploy.sh
