@@ -84,5 +84,6 @@ export default {
   description: '博客',
   // theme: '@vuepress/theme-default',
   themeConfig: defaultThemConfig,
+  base: 'xiaofan-blog',
   plugins
 }
