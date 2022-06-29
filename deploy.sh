@@ -3,8 +3,12 @@
 # abort on errors
 set -e
 
+npm install yarn -g
+
+yarn install --frozen-lockfile
+
 # build
-npm run build
+yarn build
 
 # navigate into the build output directory
 cd docs/.vuepress/dist
