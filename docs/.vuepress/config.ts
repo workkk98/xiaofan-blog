@@ -74,6 +74,14 @@ const defaultThemConfig: DefaultThemeData = {
       children: [
         ['/functional-programming/chapter-1', '第一章'],
       ].map(turple2SidebarItem)
+    },
+    {
+      text: 'TypeScript',
+      link: '/TypeScript/',
+      collapsable: false, // 可选的, 默认值是 true,
+      children: [
+        ['/TypeScript/start', '体操入门'],
+      ].map(turple2SidebarItem)
     }
   ],
   lastUpdated: true
