@@ -4,12 +4,11 @@ void有两种场景
 1. compilerOptions中的strictNullChecks为true，则void可以说是undefined
 2. strictNullChecks: false, 则void 可以说是 undefined | null
 
-实际上这个类型最大的意义是在函数返回值上
-https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAZwKZQCowLariKACggEMAbMgIxIgGsAuRQgSkQF4A+RANzhgBMANIli4A-IzAhslVACdWAbwBQiRKQrU6LZQF9lBtJhx4ChFuy4ByXgKvNlQA
+实际上这个类型最大的意义是在[函数返回值上](https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAZwKZQCowLariKACggEMAbMgIxIgGsAuRQgSkQF4A+RANzhgBMANIli4A-IzAhslVACdWAbwBQiRKQrU6LZQF9lBtJhx4ChFuy4ByXgKvNlQA)
 
 
 ## any
-any类型和任何类型取&都会得到any。type challenge
+any类型和任何类型取&都会得到any。[type challenge: IsAny]()
 
 ```ts
 type foo = keyof any  // foo = string | number | symbol
@@ -40,7 +39,7 @@ type IsTurple<T> = T extends any[] ? number extends T['length'] ? false : true :
 ## Boolean
 boolean实际上就是true | false
 
-<img :src="$withBase('/images/TypeScript/boolean.png')" alt="boolean = true | false">
+<img :src="$withBase('/TypeScript/boolean.png')" alt="boolean = true | false">
 
 
 逆变与协变
@@ -77,13 +76,11 @@ Bar2 = Bar  // 逆变
 其中union转intersection就是通过这个原理playground
 
 加减乘除
-实际上类型运算中并没有语言中的操作符，那在ts中实现基本思想就是递归加数组的长度`array1['length']`
-https://www.typescriptlang.org/play?#code/C4TwDgpgBAQgrgSwDYBMCCAnDBDEAeAFSggA9gIA7FAZygrgFsAjCDAGigCVizKao4FANYUA9gHcKAbQC6UALxRZAPgVcpAciSUA5sAAWGuaXJVaRAPxcoALliJUmHPgIcpAOk+cOgkRIoyygBQQaCQUGgoKIQ8pvz0zKwcAKqxfLQJLBiqih6e8MjoWLiEyhye7gWOxfjJyjKa2hR6hjIhYdAAsgj01DEm6XSMWSlpZkOJ2WpVRc6lY-x5lQ6zJXXlnj0AZqxcclacjboGRrZ0EABurCGh4NBboqIKkdEAjGwATMG34Q+iH2pur08AAODivYJAA
+实际上类型运算中并没有语言中的操作符，那在ts中实现基本思想就是[递归加数组的长度`array1['length']`](https://www.typescriptlang.org/play?#code/C4TwDgpgBAQgrgSwDYBMCCAnDBDEAeAFSggA9gIA7FAZygrgFsAjCDAGigCVizKao4FANYUA9gHcKAbQC6UALxRZAPgVcpAciSUA5sAAWGuaXJVaRAPxcoALliJUmHPgIcpAOk+cOgkRIoyygBQQaCQUGgoKIQ8pvz0zKwcAKqxfLQJLBiqih6e8MjoWLiEyhye7gWOxfjJyjKa2hR6hjIhYdAAsgj01DEm6XSMWSlpZkOJ2WpVRc6lY-x5lQ6zJXXlnj0AZqxcclacjboGRrZ0EABurCGh4NBboqIKkdEAjGwATMG34Q+iH2pur08AAODivYJAA)
 
 索引操作
 索引通常会使用keyof关键词来操作对象中的key。
-但在使用过程中可能会有一种情况。递归计算type类型没有展开整个对象。
-https://www.typescriptlang.org/play?#code/C4TwDgpgBAZg9nKBeKBvAUFKBDAXGzLKAI3wyKIGN8BnYAJwEsA7Ac0KwF9DOAadbulCQoAEQgQwAJQjYAJnGYAbEFAA8AFQB8yAlnqyFy1QG0A1hFUsoFkHBhQNUAGRQ6TNgF18G85c9QEAAewBDMcjRQMpRw9HJq7iysvDjMIDoA-GIS0oaKKpp+IJ46PkWeAuhC4NDikjLy+SAATGoA8sQAVjpIHFAdnYEhYRGpqlnkFFP6ecZQJgDSllDWtvb9XS5uDEnefdPTA4v+Q6HhkXBdEJTA+wf3WXW5jcatR0vFWnf30-jv-t8oNwKPhmBAAG4QehVYTQeBwACMuieDSMBXhX1hsAQzWROVRTVaGKAA
+但在使用过程中可能会有一种情况。递归计算type类型没有展开整个对象。所以我们需要一个多余的[判断](https://www.typescriptlang.org/play?#code/C4TwDgpgBAZg9nKBeKBvAUFKBDAXGzLKAI3wyKIGN8BnYAJwEsA7Ac0KwF9DOAadbulCQoAEQgQwAJQjYAJnGYAbEFAA8AFQB8yAlnqyFy1QG0A1hFUsoFkHBhQNUAGRQ6TNgF18G85c9QEAAewBDMcjRQMpRw9HJq7iysvDjMIDoA-GIS0oaKKpp+IJ46PkWeAuhC4NDikjLy+SAATGoA8sQAVjpIHFAdnYEhYRGpqlnkFFP6ecZQJgDSllDWtvb9XS5uDEnefdPTA4v+Q6HhkXBdEJTA+wf3WXW5jcatR0vFWnf30-jv-t8oNwKPhmBAAG4QehVYTQeBwACMuieDSMBXhX1hsAQzWROVRTVaGKAA)
 
 # utility高级type
 
@@ -99,23 +96,24 @@ type Foo = InstanceType<typeof A> // 等价于 A
 
 ## UpperCase、LowerCase等
 我们可以看到这些个类型在ts dts声明中有一个intrinsic关键字。
-其实这个很简单，依赖编译器缓存的原字符串，在遇到Uppercase等高阶类型后，将字符串大写或小写即可。
+其实这个很简单，依赖编译器缓存的原字符串，在遇到Uppercase等高阶类型后，将字符串大写或小写化即可。
 
 ## ThisType
 这个类型的源码非常简单
-<img :src="$withBase('/images/TypeScript/ThisType.png')" alt="ThisType">
+<img :src="$withBase('/TypeScript/ThisType.png')" alt="ThisType">
 
 
 this在vue的使用非常广泛。vue-class-component由于使用了class组件的写法，ts天然支持比较好。那原本最初始的vue2实际上支持的不好，但我们来看看这个demo
-<img :src="$withBase('/images/TypeScript/defineComponent.png')" alt="defineComponent">
+<img :src="$withBase('/TypeScript/defineComponent.png')" alt="defineComponent">
 
-
-~/open-source/composition-api/component/componentOptions
+源码地址：composition-api/component/componentOptions
 
 # 源码初窥
 https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API
-src/compiler/checker.ts
-getTypeFromTypeAliasReference
+
+文件地址：src/compiler/checker.ts
+
+函数名：getTypeFromTypeAliasReference
 
 ```TS
 const ts = require("./built/local/typescript");
@@ -142,18 +140,16 @@ visitNode(sourceFile);
 ```
 
 1. never类型在union中的过滤
-<img :src="$withBase('/images/TypeScript/never-in-union.png')" alt="never-in-union">
+
+<img :src="$withBase('/TypeScript/never-in-union.png')" alt="never-in-union">
 
 
 2. 分布式条件类型的运算
-<img :src="$withBase('/images/TypeScript/distributive.png')" alt="distributive">
 
-<img :src="$withBase('/images/TypeScript/distributive-2.png')" alt="distributive2">
+<img :src="$withBase('/TypeScript/distributive.png')" alt="distributive">
+
+<img :src="$withBase('/TypeScript/distributive-2.png')" alt="distributive2">
 
 
-
-做道简单的小算法
-判断回文串
-
-分享下文章
-https://juejin.cn/post/6999886459343732772
+## 文章分享
+[赋予Vuex 4.x 更好的 TypeScript体验](https://juejin.cn/post/6999886459343732772)
